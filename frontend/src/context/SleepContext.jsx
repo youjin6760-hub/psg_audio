@@ -290,7 +290,8 @@ import React, { createContext, useContext, useState, useEffect, useRef, useCallb
 const SleepContext = createContext();
 export const useSleep = () => useContext(SleepContext);
 
-const API_BASE_URL = 'http://127.0.0.1:8000'; // FastAPI 서버 주소에 맞게 수정
+const RAW_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://youjin6760-psgaudio-back.hf.space';
+const API_BASE_URL = RAW_API_BASE_URL.replace(/\/$/, '');
 
 // ========================================
 // [녹음-WAV 추가] Float32 → 16bit WAV 인코더
